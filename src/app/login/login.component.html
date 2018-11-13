@@ -1,0 +1,28 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title style=""><b>LOGIN FORM</b></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+      
+      <form style="padding:15px" [formGroup]="form"> 
+
+      <div formGroupName="name">
+          <ng-template matStepLabel>Fill out the form</ng-template>
+          <div >
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" required  formControlName="uname">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password" type="password" required formControlName="pw">
+        </mat-form-field>
+        </div>
+       
+        <br>
+          <div>
+            <button  (click)="calltologin()" mat-button style="color: white;background-color: #3f51b5; float: right;" ><i class="material-icons">lock_open</i> Login</button>
+          </div><br><br>
+        </div>
+        </form>
+
+  </mat-card-content>
+</mat-card>

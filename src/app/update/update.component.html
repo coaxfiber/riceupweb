@@ -1,0 +1,74 @@
+<br>
+        <div  *ngIf="load==='no'" >
+         <form [formGroup]="form">
+          <img src="http://riceupfarmers.org/wp-content/system/uploads/{{ property.photo_url }}.jpg?{{timee}}"  alt="loading..."   onError="this.src='http://riceupfarmers.org/wp-content/system/product.jpg';" style="width:100%" />
+           <input type="file" name="file" id="file" (change)="onFileChanged($event)" />
+
+                         <div formGroupName="name">
+
+          <mat-form-field class="example-full-width">
+          <input matInput placeholder="Name" required formControlName="pname"  mat-button >
+        </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+          <input matInput placeholder="Description" required formControlName="desc">
+        </mat-form-field><!-- 
+              <ion-item>
+              <ion-label   stacked>Unit</ion-label>
+              <ion-select formControlName="unit" >
+                <ion-option value="">-Select Unit-</ion-option>
+                <ion-option value="pcs">pcs</ion-option>
+                <ion-option value="kg">kg</ion-option>
+                <ion-option value="ewan">ewan</ion-option>
+                <ion-option value="boom">boom</ion-option>  
+              </ion-select>
+            </ion-item> -->
+            <mat-form-field>
+              <mat-select formControlName="unit" >
+                <mat-option value="">
+                  -Select Unit-
+                </mat-option>
+                <mat-option value="pcs">
+                  pcs
+                </mat-option>
+                <mat-option value="kg">
+                  kg
+                </mat-option>
+                
+                <mat-option value="750g">
+                  750g
+                </mat-option>
+                <mat-option value="250g">
+                  250g
+                </mat-option>
+                <mat-option value="500g">
+                  500g
+                </mat-option>
+                <mat-option value="tail">
+                  tail
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+              <mat-form-field class="example-full-width">
+              <input matInput placeholder="Price" required formControlName="price"  type="number">
+            </mat-form-field>
+              <mat-form-field class="example-full-width">
+              <input matInput placeholder="Stocks" required formControlName="stocks"  type="number">
+            </mat-form-field>
+              <mat-form-field class="example-full-width">
+              <input matInput placeholder="harvest Date" required formControlName="harvest_date"  type="date" displayFormat="YYYY-MM-DD" formControlName="harvest_date"  max="{{datenow | date: 'yyyy-MM-dd'}}" >
+            </mat-form-field>
+                  </div>
+                   <button (click)="update()"  mat-button style="color: white;background-color: #3f51b5; float: right;" >
+                    Edit Product
+                  </button>
+                   <button (click)="delprod()"  mat-button style="color: white;background-color: #A36666; float: right; margin-right: 10px" >
+                    Remove Product
+                  </button>
+                   <button (click)="onNoClick()"  mat-button style="color: white;background-color: #660000; float: right; margin-right: 10px" >
+                    Cancel
+                  </button>
+            </form>
+            </div>
+
+            <mat-spinner  *ngIf="load==='yes'" style="margin:10px auto 10px auto;overflow-x:hidden;"></mat-spinner>
